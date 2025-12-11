@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import yfinance as yf
 import pandas as pd
 
-from twse_utils import get_twse_stock_codes, screen_stock, annualized_return
+from twse_utils import screen_stock, annualized_return
 from chart_utils import plot_candlestick_with_ma
 from alert_rules import check_alerts, meets_criteria
 
@@ -70,3 +70,4 @@ if st.sidebar.button("🔍 查詢股票"):
             st.markdown("🚫 **此股票未達成所有選股條件**")
     else:
         st.warning("⚠️ 無法取得該股票資料或資料不足。")
+
