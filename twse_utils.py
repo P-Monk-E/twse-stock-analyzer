@@ -54,9 +54,9 @@ def screen_stock(code, market_close, rf, mr, start, end):
     alpha = calc_alpha(prices["Close"], market_close, rf)
     sharpe = calc_sharpe(prices["Close"], rf)
     try:
-    info = t.info
+        info = t.info
     except:
-    info = {}
+        info = {}
     total_liab = info.get("totalLiab", np.nan)
     equity = info.get("totalStockholderEquity", np.nan)
     debt_equity = total_liab/equity if equity and not np.isnan(equity) else np.nan
@@ -67,4 +67,5 @@ def screen_stock(code, market_close, rf, mr, start, end):
 
     return {"負債比":debt_equity,"流動比率":current_ratio,"ROE":roe,
             "Alpha":alpha,"夏普值":sharpe,"Beta":beta,"10年中位偏離":median_dev}
+
 
